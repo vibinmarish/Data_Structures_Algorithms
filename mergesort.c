@@ -1,78 +1,80 @@
 #include<stdio.h>
 #include<stdlib.h>
 
-void Merge(int *A,int *L,int Ln,int *R,int Rn) // Rn is the Length of right array
+void merge(int* a,int* left,int* right,int Ln,int Rn) // Ln and Rn are the length of left and right array
 {
-	int i,j,k;
-
-	i = 0; j = 0; k =0;
-
-	while(i<Ln && j< Rn)
+    int i,j,k;
+    i=0;j=0;k=0;
+	
+    while(i<Ln && j<Rn)
     {
-		if(L[i]  < R[j])
-		{
-            A[k] = L[i];
+        if(left[i]<right[j])
+        {
+            a[k]=left[i];
             k=k+1;
             i=i+1;
-		}
+        }
         else
-         {
-            A[k] = R[j];
+        {
+            a[k]=right[j];
             k=k+1;
             j=j+1;
-	     }
-	     }
-	while(i < Ln)
+        }
+    }
+    while(i<Ln)
     {
-        A[k] = L[i];
+        a[k]=left[i];
         k=k+1;
         i=i+1;
     }
-	while(j < Rn)
-	{
-	    A[k] = R[j];
-	    k=k+1;
-            j=j+1;
-	}
-}
-
-void MergeSort(int *A,int n)
-{
-	int mid,i, *L, *R;
-
-	if(n < 2) return;
-
-	mid = n/2;
-
-	L = (int*)malloc(mid*sizeof(int));
-	R = (int*)malloc((n- mid)*sizeof(int));
-
-	for(i = 0;i<mid;i++)
+    while(j<Rn)
     {
-        L[i] = A[i];
-    }
-	for(i = mid;i<n;i++)
-    {
-        R[i-mid] = A[i];
+        a[k]=right[j];
+        j=j+1;
+        k=k+1;
     }
 
-	MergeSort(L,mid);
-	MergeSort(R,n-mid);
-	Merge(A,L,mid,R,n-mid);
-        free(L);
-        free(R);
 }
-
-int main()
+void mergesort(int* a,int n)
 {
-	int A[] = {7,8,4,1,9,2,13};
-	int i,n;
+    int mid,*left,*right;
+    if(n<2)
+    {
+        return;
+    }
+    mid=n/2;
 
-	n = sizeof(A)/sizeof(A[0]);
+    left=(int*)malloc(mid* sizeof(int));
+    right=(int*)malloc((n-mid)* sizeof(int));
 
-	MergeSort(A,n);
+    for(int i=0;i<mid;i++)
+    {
+        left[i]=a[i];
+    }
 
-	for(i = 0;i < n;i++)
-        printf("%d ",A[i]);
-	return 0;
+    for(int i=mid;i<n;i++)
+    {
+        right[i-mid]=a[i];
+    }
+    mergesort(left,mid);
+	
+    mergesort(right,n-mid);
+	
+    merge(a,left,right,mid,n-mid);
+	
+    free(left);
+    free(right);
+}
+void main()
+{
+    int a[]={3,60,40,20,80,44,67,23,65};
+	
+    int n= sizeof(a)/sizeof(a[0]);
+	
+    mergesort(a,n);
+	
+    for(int i=0;i<n;i++)
+    {
+        printf("%d ",a[i]);
+    }
 }
