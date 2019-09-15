@@ -1,13 +1,13 @@
 #include<stdio.h>
 #include<stdlib.h>
 
-void Merge(int *A,int *L,int leftCount,int *R,int rightCount)
+void Merge(int *A,int *L,int Ln,int *R,int Rn) // Rn is the Length of right array
 {
 	int i,j,k;
 
 	i = 0; j = 0; k =0;
 
-	while(i<leftCount && j< rightCount)
+	while(i<Ln && j< Rn)
     {
 		if(L[i]  < R[j])
 		{
@@ -22,17 +22,17 @@ void Merge(int *A,int *L,int leftCount,int *R,int rightCount)
             j=j+1;
 	     }
 	     }
-	while(i < leftCount)
+	while(i < Ln)
     {
         A[k] = L[i];
         k=k+1;
         i=i+1;
     }
-	while(j < rightCount)
+	while(j < Rn)
 	{
 	    A[k] = R[j];
 	    k=k+1;
-        j=j+1;
+            j=j+1;
 	}
 }
 
@@ -65,7 +65,7 @@ void MergeSort(int *A,int n)
 
 int main()
 {
-	int A[] = {6,2,3,1,9,10,15,13,12,17};
+	int A[] = {7,8,4,1,9,2,13};
 	int i,n;
 
 	n = sizeof(A)/sizeof(A[0]);
