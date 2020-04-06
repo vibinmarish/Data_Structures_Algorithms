@@ -7,7 +7,7 @@ public class Quick_Sort {
 		
 		while(start<end) // we want to keep this until start becomes greater than end.
 		{
-			while(a[start]<=pivot)
+			while(a[start]<=pivot  && start<a.length-1)
 				start++;
 			while(a[end]>pivot)
 				end--;
