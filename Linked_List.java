@@ -243,7 +243,7 @@ public class Linked_List {
 		list.length();
 		list.swapNode(1,5);
 		list.show();
-		
+	
 	}
 }
 
