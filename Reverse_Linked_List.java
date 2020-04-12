@@ -1,5 +1,3 @@
-package Sample;
-
 class Node
 {
 	int data;
