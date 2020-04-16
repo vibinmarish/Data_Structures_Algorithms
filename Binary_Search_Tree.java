@@ -108,15 +108,15 @@ class BST {
 		{
 			if(root.left==null && root.right==null)			//Case 1: No child node
 				return null;
-			if(root.left==null)								//Case 2: One child node
+			if(root.left==null)					//Case 2: One child node
 				return root.right;
 			else if(root.right==null)
 				return root.left;
-															//Case 3: Two child nodes
-			root.data=minNode(root.right);					//Finding inorder successor, that is the smallest key in the right subtree.
+										//Case 3: Two child nodes
+			root.data=minNode(root.right);				//Finding inorder successor, that is the smallest key in the right subtree.
 			root.right=deleteRec(root.data,root.right);		//Deleting the inorder successor, passing the smallest element.
 		}
-		return root;										// After all the recursive calls in stack the original root is returned
+		return root;							// After all the recursive calls in stack the original root is returned
 	}
 	int minNode(Node root)
 	{
