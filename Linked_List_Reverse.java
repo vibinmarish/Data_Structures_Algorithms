@@ -55,7 +55,7 @@ class LinkedList
 		
 	}
 }
-public class Reverse_Linked_List {
+public class Linked_List_Reverse {
 	public static void main(String args[])
 	{
 		LinkedList list=new LinkedList();
