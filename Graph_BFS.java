@@ -62,3 +62,59 @@ public class Graph_BFS {
 	}
 }
 
+
+//Different method
+
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+class Driverclass {
+    public static void main(String args[]) {
+        Scanner sc = new Scanner(System.in);
+       
+            ArrayList<ArrayList<Integer>> list = new ArrayList<>();
+            int nov = sc.nextInt();
+            int edg = sc.nextInt();
+
+            for (int i = 0; i < nov; i++) 
+		list.add(i, new ArrayList<Integer>());
+
+            for (int i = 1; i <= edg; i++) {
+                int u = sc.nextInt();
+                int v = sc.nextInt();
+                list.get(u).add(v);
+            }
+            ArrayList<Integer>res = new Traversal().bfs(list,nov);
+            for (int i =0 ;i < res.size (); i++) 
+                System.out.print (res.get (i) + " ");
+            System.out.println();
+        
+    }
+}
+
+class Traversal {
+    static ArrayList<Integer> bfs(ArrayList<ArrayList<Integer>> g, int N) {
+        ArrayList <Integer> list= new ArrayList<Integer>();
+        
+        Queue<Integer> q= new LinkedList<>();
+        q.offer(0);
+        boolean visited[]=new boolean[N];
+        visited[0]=true;
+        while(!q.isEmpty())
+        {
+            int temp =q.poll();
+            list.add(temp);
+            for(int i:g.get(temp))
+            {
+                if(visited[i]!=true)
+                {
+                    q.add(i);
+                    visited[i]=true;
+                }
+            }
+            
+        }
+        return list;
+    }
+}
