@@ -60,3 +60,25 @@ public class Graph_DFS {
 	g.dfs(2);
 	}
 }
+//Recursive method
+
+class Traversal
+{   
+    static void dfs(ArrayList<ArrayList<Integer>> g,int start,boolean visited[])
+    {
+        visited[start]=true;
+        System.out.print(start+" ");
+        for(Integer i:g.get(start))
+        {
+            if(!visited[i])
+            dfs(g,i,visited,list);
+        }
+    }
+    static ArrayList<Integer> dfs(ArrayList<ArrayList<Integer>> g, int N)
+    {
+         boolean visited[]=new boolean[N];
+    	dfs(g,0,visited);	//starting from 0 node
+     	return list;
+    }
+    
+}
