@@ -1,2 +1,2 @@
 # Data Structures & Algorithm
-Simple programs of sorting, searching, graphs, trees, stack, queue and linked list.
+Simple programs of arrays, strings, sorting, searching, graphs, trees, stack, queue, linked list and dynamic programming.
