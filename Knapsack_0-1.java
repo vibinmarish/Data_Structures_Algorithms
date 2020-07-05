@@ -14,10 +14,8 @@ class Knapsack {
       for(int i=0;i<=n;i++)
       {
         for(int j=0;j<=W;j++)
-        {
-          
-          
-          else if(wt[i-1]<=j)	//If the current weight is less or equal to the given weight.
+	{
+          if(wt[i-1]<=j)	//If the current weight is less or equal to the given weight.
           {
             matrix[i][j]=Math.max(val[i-1] + matrix [i-1] [j - wt[i-1] ],  matrix[i-1][j]);	//We take the max of (current profit+ matrix element of(current weight-given weight))or the previous matrix value)
           }
