@@ -11,9 +11,9 @@ class Knapsack {
       for(int i=0;i<W;i++)
         matrix[0][i]=0;
 		
-      for(int i=0;i<=n;i++)
+      for(int i=1;i<=n;i++)
       {
-        for(int j=0;j<=W;j++)
+        for(int j=1;j<=W;j++)
 	{
           if(wt[i-1]<=j)	//If the current weight is less or equal to the given weight.
           {
