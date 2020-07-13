@@ -1,6 +1,6 @@
 class Solution {
     public int findKthLargest(int[] nums, int k) {
-        PriorityQueue<Integer> minHeap= new PriorityQueue<Integer>() ;  //By default priority queue is a Min Heap. Min Heap keeps maximum value in the root.
+        PriorityQueue<Integer> minHeap= new PriorityQueue<Integer>() ;  //By default priority queue is a Min Heap. Min Heap keeps min value in the root. For kth largest we use min
         
         for(int i:nums)
         {
