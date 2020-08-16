@@ -10,14 +10,14 @@ class LMR{
      
         for(int i=1;i<n;i++)
         {  
-            maxLeft[i] = Math.max(a[i-1],maxLeft[i-1]);
+            maxLeft[i] = Math.max(a[i],maxLeft[i-1]);
         }
         for(int j=n-2;j>=0;j--)
         {
-            minRight[j]=Math.min(a[j+1],minRight[j+1]);
+            minRight[j]=Math.min(a[j],minRight[j+1]);
         }
         
-        for(int k=0;k<n;k++)
+        for(int k=1;k<n-1;k++)
         {
             if(a[k]>maxLeft[k] && a[k]<minRight[k])
             {
