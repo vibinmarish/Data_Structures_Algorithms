@@ -1,9 +1,9 @@
 class Solution {
     public boolean isValid(String s) {
         
-        		Stack<Character> stack= new Stack<>();
+        	    Stack<Character> stack= new Stack<>();
 		    for(char c:s.toCharArray()){
-		        //System.out.println(stack);
+		        
 		        if(c=='{' || c=='(' || c=='['){
 		            stack.push(c);
 		        } 
@@ -16,11 +16,9 @@ class Solution {
 		        else if(c==']' && !stack.isEmpty() && stack.peek()=='['){
 		            stack.pop();
 		        }
-                		else
+                	else
                     	    return false;
-		    }
-		    
-		    
+		    } 
 		 return stack.isEmpty();
     }
 }
